@@ -1,0 +1,41 @@
+# currency_converter
+Currency Converter GUI application
+Introduction:
+The code is a simple currency converter application using Python and the tkinter GUI library. It fetches exchange rates from an API and allows the user to convert any amount of currency between the available options. The user selects the currencies to convert and enters an amount, and the application returns the converted value with two decimal places. The code is well-commented, easy to understand, and can be used as a starting point for building more complex GUI applications.
+
+c.py 
+1. Importing the tkinter GUI library and the ttk sublibrary for more stylish widgets.
+2. Importing the requests library for fetching data from the exchange rate API.
+4-7. Defining a function to fetch exchange rates from the API and return them as a dictionary of currency codes and their respective rates.
+9-14. Defining a function to convert an amount of currency between selected currencies using their exchange rates, and then updating a tkinter label with the converted value.
+16-19. Calling the get_exchange_rates function to fetch the exchange rates and store them in a global variable called exchange_rates.
+20-22. Creating a new tkinter window (root) with a title "Currency Converter".
+24-27. Creating a new frame to contain all the widgets used in this application.
+29. Displaying the mainframe on the root window.
+31-32. Creating two string variables (from_currency_var and to_currency_var) and setting their initial values to "USD" and "EUR" respectively.
+34-35. Creating a new entry widget to allow users to input an amount they want to convert.
+37-40. Creating two Combobox widgets that display available currencies to convert from and to, which only allow selecting values from the displayed list, and whose initial values are set using exchange rate data fetched through the API in line 16.
+42-43. Creating a string variable for displaying conversion results, with an initial value of an empty string.
+45-47. Creating a label widget that displays conversion results (initially empty), spanning three columns of the mainframe grid (to make it wide).
+49-52. Creating a new button widget that calls the convert_currency function when pressed, causing calculated conversion results to display in result_label.
+54. Starting the tkinter event loop that listens for user interactions with widgets and updates them accordingly, continuously executing until exited by the user or stopped programmatically.
+
+c1.py(Visualization file)
+Code Explanation:
+1. Importing the requests library for accessing web APIs.
+2. Importing the matplotlib.pyplot sublibrary for creating data visualizations using Matplotlib.
+
+4-7. Prompting the user to enter their API credentials and input currency codes, as well as a duration value that specifies how far back in time to retrieve exchange rate data.
+
+9-17. Splitting the duration string entered by the user into a number and a time unit, checking these inputs are valid formats and values, and then setting start and end dates based on this duration (the end date is set as today's date). Depending on the time unit specified, the start date will be either a certain number of years ago, same day of month but num months ago, or num weeks ago.
+
+19-27. Building a URL to query the Open Exchange Rates API by specifying required parameters such as app_id, base currency code, target currency code, start date, and end date. Then performing a GET request with these parameters to retrieve daily exchange rates of target currency against base currency during the queried time window.
+
+29-30. Parsing the returned JSON response from the API to extract daily exchange rates.
+
+32-41. Creating a line plot using Matplotlib that displays daily exchange rates over the queried time period on the x-axis (as dates) and exchange rates on y-axis (in base currency relative to target currency). The plot is customized with appropriate axis labels and title reflecting user-specified duration and currencies.
+
+43. Displaying the plot in a separate window or pane using Matlabplot's plt.show function.
+
+
+
